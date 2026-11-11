@@ -1,5 +1,10 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+import sqlalchemy as db
+from sqlalchemy.orm import sessionmaker, DeclarativeBase
 
-engine = create_engine("sqlite:///app.db")
+engine = db.create_engine(
+    "postgresql://username:password@localhost:5432/company"
+)
 SessionLocal = sessionmaker(engine)
+
+class Base(DeclarativeBase):
+    pass
